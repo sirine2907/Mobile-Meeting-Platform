@@ -1,10 +1,7 @@
-/**
- * Sample data used by the UI prototype.
- * In Milestone 1–2 this is replaced by server-stored profiles and a
- * geocoding provider (city / postcode autocomplete).
- */
+// Sample data for the prototype (no backend yet)
+// TODO milestone 1-2: load profiles from the database and cities from a geocoding API
 
-/** Cities with approximate centre coordinates and postcode prefixes (FSA). */
+// city center coordinates + first 3 chars of the postcodes
 const CITIES = [
   { name: "Montréal",       region: "QC", postcodes: ["H2X", "H3B", "H2J"], lat: 45.5019, lng: -73.5674 },
   { name: "Laval",          region: "QC", postcodes: ["H7N", "H7T"],        lat: 45.6066, lng: -73.7124 },
@@ -67,7 +64,7 @@ const PROFILES = [
     bio: "High-school teacher and chess club organiser. Ask me for a book recommendation, I have hundreds." },
 ];
 
-/** The logged-in demo user. Their own profile city never changes when they search elsewhere. */
+// fake logged in user
 const CURRENT_USER = {
   id: "me", name: "Alex", age: 32, city: "Val-d'Or", photo: photo(51),
   online: true, joined: "2026-10-01",
@@ -75,7 +72,7 @@ const CURRENT_USER = {
   bio: "Just moved to Abitibi for work. Looking for people to explore the trails and the local coffee scene with.",
 };
 
-/** Seed conversations, keyed by profile id. */
+// sample conversations (key = profile id)
 const SEED_MESSAGES = {
   marc: [
     { from: "marc", text: "Hi Alex! Saw you like hiking too 🙂", at: "09:12" },
