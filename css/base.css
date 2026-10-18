@@ -1,0 +1,62 @@
+/* Base styles + colors/sizes variables (change these to match the design) */
+:root {
+  --primary: #e8505b;
+  --primary-dark: #c93b46;
+  --primary-soft: #fde8e9;
+  --ink: #241631;
+  --ink-2: #5d5168;
+  --muted: #8d8396;
+  --bg: #fff8f3;
+  --surface: #ffffff;
+  --line: #efe4dd;
+  --success: #22b07d;
+  --danger: #d6334a;
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow: 0 6px 24px rgba(36, 22, 49, 0.08);
+  --shadow-lg: 0 12px 40px rgba(36, 22, 49, 0.16);
+
+  --gutter: clamp(16px, 5vw, 24px);
+  --nav-h: 64px;
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: #e9e1db;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+h1, h2, h3, p { margin: 0; }
+
+/* mobile only, on desktop we just center it like a phone */
+.app {
+  position: relative;
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--bg);
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom));
+  overflow-x: hidden;
+}
+@media (min-width: 481px) { .app { box-shadow: var(--shadow-lg); } }
+.app.no-nav { padding-bottom: 96px; }
+.app.chat-layout { display: flex; flex-direction: column; height: 100dvh; padding-bottom: 0; }
+
+.icon { width: 20px; height: 20px; flex: none; }
+.icon-lg { width: 36px; height: 36px; }
+.muted { color: var(--muted); }
+
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
