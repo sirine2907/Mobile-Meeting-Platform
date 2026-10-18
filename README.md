@@ -49,7 +49,7 @@ This repository contains the front-end for the five core screens: **homepage, pu
 
 ### Quality
 - **Mobile-only and responsive**: tested from 320 px (iPhone SE) to 480 px wide. It supports safe areas (`env(safe-area-inset-*)`) and `100dvh`, and the page never scrolls sideways.
-- **Design tokens**: all colours, radii, shadows and spacing are CSS variables in [`css/styles.css`](css/styles.css), so a supplied design can be matched exactly.
+- **Design tokens**: all colours, radii, shadows and spacing are CSS variables in [`css/base.css`](css/base.css), so a supplied design can be matched exactly.
 - **Accessibility**: labelled inputs, `aria-invalid` and `aria-pressed` states, dialogs with `role="dialog"`, and support for `prefers-reduced-motion`.
 - **Security**: all user text is HTML-escaped before rendering.
 - No framework, no build step, no dependencies.
@@ -61,7 +61,7 @@ This repository contains the front-end for the five core screens: **homepage, pu
 | Layer | Prototype (this repo) | Production (planned for later milestones) |
 |---|---|---|
 | UI | HTML5, CSS3 (custom properties), vanilla JavaScript | Next.js / React + TypeScript (or keep as-is) |
-| Routing | Hash router (`js/app.js`) | Next.js App Router |
+| Routing | Hash router (`js/router.js`) | Next.js App Router |
 | Data | Sample data (`js/data.js`) | PostgreSQL + PostGIS (Supabase) |
 | Auth | Client-side validation | Supabase Auth: email verification, password reset |
 | Location | Haversine over city centres | Geocoding API (Mapbox / Google Places / Geoapify) + `ST_DWithin` radius queries |
@@ -73,17 +73,30 @@ This repository contains the front-end for the five core screens: **homepage, pu
 ## Project structure
 
 ```
-meetly-mobile/
-├── index.html          # App shell
+Mobile-Meeting-Platform/
+├── index.html            # loads the css and js files
 ├── css/
-│   └── styles.css      # Design tokens + all component styles
+│   ├── base.css          # variables (colors, sizes) + layout
+│   ├── components.css    # buttons, inputs, chips, nav, dialog...
+│   └── pages.css         # styles for each page
 ├── js/
-│   ├── data.js         # Sample cities, profiles, interests, conversations
-│   ├── geo.js          # Autocomplete, Haversine distance, search & sort
-│   ├── views.js        # Screens: Home, Profile, Signup, Login, Search, Inbox, Chat
-│   └── app.js          # Hash router, state, toasts
-└── screenshots/        # Mobile screenshots (390×844 @2x)
+│   ├── data.js           # sample cities, profiles, messages
+│   ├── helpers.js        # escapeHtml, icons, toast, localStorage
+│   ├── geo.js            # city autocomplete, distance, search
+│   ├── state.js          # app state (search filters, favorites, messages)
+│   ├── components.js     # reusable UI parts
+│   ├── pages/            # one file per page
+│   │   ├── home.js
+│   │   ├── login.js
+│   │   ├── signup.js
+│   │   ├── profile.js
+│   │   ├── search.js
+│   │   └── messages.js
+│   └── router.js         # hash router, loaded last
+└── screenshots/
 ```
+
+Each page function returns `{ html, setup }`. The router puts the html in `#app` and then calls `setup()` to add the event listeners.
 
 ### Routes
 
