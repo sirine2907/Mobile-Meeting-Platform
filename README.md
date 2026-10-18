@@ -3,7 +3,7 @@
 A **mobile-only** web app that connects adults with shared interests so they can chat and meet in person.
 This repository contains the front-end for the five core screens: **homepage, public profile, sign-up, login and search & results**. It also includes a working preview of **private messaging**.
 
-**Live mobile preview:** https://GITHUB_USER.github.io/meetly-mobile/ (open on a phone, or use your browser's device toolbar)
+**Live mobile preview:** https://sirine2907.github.io/Mobile-Meeting-Platform/ (open on a phone, or use your browser's device toolbar)
 
 > Sample data only. A real database, authentication, geocoding provider and server-side messaging are planned for later milestones (see the [Roadmap](#roadmap)).
 
@@ -104,8 +104,8 @@ meetly-mobile/
 No installation is needed.
 
 ```bash
-git clone https://github.com/GITHUB_USER/meetly-mobile.git
-cd meetly-mobile
+git clone https://github.com/sirine2907/Mobile-Meeting-Platform.git
+cd Mobile-Meeting-Platform
 
 # Option 1 — open directly
 start index.html          # Windows   (macOS: open index.html)
